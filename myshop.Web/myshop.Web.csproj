@@ -92,6 +92,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.9" />
@@ -110,6 +111,12 @@
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="wwwroot\Images\Products\" />
     <Folder Include="wwwroot\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\myshop.BLL\myshop.BLL.csproj" />
+    <ProjectReference Include="..\myshop.DAL\myshop.DAL.csproj" />
+    <ProjectReference Include="..\myshop.Models\myshop.Models.csproj" />
   </ItemGroup>
 
 </Project>

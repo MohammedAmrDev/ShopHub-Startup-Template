@@ -1,7 +1,36 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net7.0": {
+      "AutoMapper/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Azure.Core/1.24.0": {
         "type": "package",
         "dependencies": {
@@ -1296,7 +1325,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -4142,10 +4171,81 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "myshop.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "myshop.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/myshop.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/myshop.BLL.dll": {}
+        }
+      },
+      "myshop.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
+          "myshop.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/myshop.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/myshop.DAL.dll": {}
+        }
+      },
+      "myshop.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.9"
+        },
+        "compile": {
+          "bin/placeholder/myshop.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/myshop.Models.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "AutoMapper/12.0.0": {
+      "sha512": "0Rmg0zI5AFu1O/y//o9VGyhxKjhggWpk9mOA1tp0DEVx40c61bs+lnQv+0jUq8XbniF7FKgIVvI1perqiMtLrA==",
+      "type": "package",
+      "path": "automapper/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.0.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+      "sha512": "XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "Azure.Core/1.24.0": {
       "sha512": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
       "type": "package",
@@ -5850,10 +5950,10 @@
         "microsoft.codeanalysis.workspaces.common.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5866,6 +5966,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -5875,7 +5976,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -11932,10 +12033,26 @@
         "x.pagedlist.mvc.core.8.4.7.nupkg.sha512",
         "x.pagedlist.mvc.core.nuspec"
       ]
+    },
+    "myshop.BLL/1.0.0": {
+      "type": "project",
+      "path": "../myshop.BLL/myshop.BLL.csproj",
+      "msbuildProject": "../myshop.BLL/myshop.BLL.csproj"
+    },
+    "myshop.DAL/1.0.0": {
+      "type": "project",
+      "path": "../myshop.DAL/myshop.DAL.csproj",
+      "msbuildProject": "../myshop.DAL/myshop.DAL.csproj"
+    },
+    "myshop.Models/1.0.0": {
+      "type": "project",
+      "path": "../myshop.Models/myshop.Models.csproj",
+      "msbuildProject": "../myshop.Models/myshop.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.9",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.9",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.9",
@@ -11944,27 +12061,30 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.9",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.8",
       "Stripe.net >= 43.4.0",
-      "X.PagedList.Mvc.Core >= 8.4.7"
+      "X.PagedList.Mvc.Core >= 8.4.7",
+      "myshop.BLL >= 1.0.0",
+      "myshop.DAL >= 1.0.0",
+      "myshop.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "D:\\NuGet_Cache": {},
+    "C:\\Users\\gamer\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\visual-studio-programs\\E-Commerce-Startup-Template\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
+      "projectUniqueName": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
       "projectName": "myshop.Web",
-      "projectPath": "D:\\visual-studio-programs\\E-Commerce-Startup-Template\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
-      "packagesPath": "D:\\NuGet_Cache",
-      "outputPath": "D:\\visual-studio-programs\\E-Commerce-Startup-Template\\ShopHub-Startup-Template\\myshop.Web\\obj\\",
+      "projectPath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
+      "packagesPath": "C:\\Users\\gamer\\.nuget\\packages\\",
+      "outputPath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11977,8 +12097,19 @@
       },
       "frameworks": {
         "net7.0": {
+          "framework": "net7.0",
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.BLL\\myshop.BLL.csproj": {
+              "projectPath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.BLL\\myshop.BLL.csproj"
+            },
+            "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj": {
+              "projectPath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj"
+            },
+            "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Models\\myshop.Models.csproj": {
+              "projectPath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Models\\myshop.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -11991,12 +12122,17 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net7.0": {
+        "framework": "net7.0",
         "targetAlias": "net7.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.9, )"
@@ -12047,6 +12183,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -12055,7 +12209,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

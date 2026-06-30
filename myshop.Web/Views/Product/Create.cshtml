@@ -1,5 +1,4 @@
-﻿@using myshop.Entities.ViewModels
-@model ProductVM
+﻿@model ProductViewModel
 
 @{
     ViewBag.PageTitle = "Product Management";
@@ -97,44 +96,45 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                 <div class="mb-3">
-                    <label asp-for="Product.Name" class="form-label">
+                    <label asp-for="Name" class="form-label">
                         <i class="fa-solid fa-tag me-1"></i> Product Name
                     </label>
-                    <input asp-for="Product.Name" class="form-control" placeholder="Enter product name..." />
-                    <span asp-validation-for="Product.Name" class="text-danger"></span>
+                    <input asp-for="Name" class="form-control" placeholder="Enter product name..." />
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Product.Description" class="form-label">
+                    <label asp-for="Description" class="form-label">
                         <i class="fa-solid fa-align-left me-1"></i> Description
                     </label>
-                    <textarea asp-for="Product.Description" rows="4" class="form-control" placeholder="Enter description..."></textarea>
-                    <span asp-validation-for="Product.Description" class="text-danger"></span>
+                    <textarea asp-for="Description" rows="4" class="form-control" placeholder="Enter description..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Product.Price" class="form-label">
+                    <label asp-for="Price" class="form-label">
                         <i class="fa-solid fa-dollar-sign me-1"></i> Price
                     </label>
-                    <input asp-for="Product.Price" class="form-control" placeholder="Enter price..." />
-                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    <input asp-for="Price" class="form-control" placeholder="Enter price..." />
+                    <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Product.Img" class="form-label">
+                    <label class="form-label">
                         <i class="fa-solid fa-image me-1"></i> Product Image
                     </label>
-                    <input type="file" name="file" id="imgfile" class="form-control" onchange="fillimg(event);" />
+                    <input type="file" name="ImageFile" id="imgfile" class="form-control" onchange="fillimg(event);" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Product.CategoryId" class="form-label">
+                    <label asp-for="CategoryId" class="form-label">
                         <i class="fa-solid fa-list me-1"></i> Category
                     </label>
-                    <select asp-for="Product.CategoryId" class="form-control" asp-items="Model.CategoryList">
+                    <select asp-for="CategoryId" class="form-control" asp-items="Model.CategoryList">
                         <option disabled selected>-- Select Category --</option>
                     </select>
-                    <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
@@ -148,7 +148,7 @@
             </form>
 
             <div class="mt-4 text-center">
-                <img id="ImagePreview" />
+                <img id="ImagePreview" src="ImageURL"/>
             </div>
 
         </div>

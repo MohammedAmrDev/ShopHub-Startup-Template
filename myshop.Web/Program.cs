@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using myshop.DataAccess;
+using myshop.BLL;
+using myshop.DAL.Data;
+using myshop.DAL.Interfaces;
+using myshop.DAL.Repositories;
 using myshop.Entities.Models;
-using Stripe;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +19,11 @@ builder.Services.AddIdentity<ApplicationUser,IdentityRole>(
     options=>options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4)
     ).AddDefaultTokenProviders().AddDefaultUI()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+builder.Services.ConfiguringBusinessLogicLayer();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 builder.Services.AddHttpContextAccessor();
