@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using myshop.Models.Entities;
+using myshop.Models.IdentityEntities;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace myshop.Entities.Models

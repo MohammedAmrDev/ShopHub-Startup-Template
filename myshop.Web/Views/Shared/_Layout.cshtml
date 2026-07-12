@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using myshop.Models.IdentityEntities
+@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +12,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/myshop.Web.styles.css" asp-append-version="true" />
-
     <style>
         body {
             background: linear-gradient(135deg,#eef2f7 0%,#d9e4f5 40%,#c3dafe 100%);
@@ -107,28 +110,31 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarContent">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class="navbar-nav ms-auto">
 
-                    <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-box"
+                                   asp-controller="Product"
+                                   asp-action="Index">
+                                    Products
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-box"
-                               asp-controller="Product"
-                               asp-action="Index">
-                                Products
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-box"
+                                   asp-controller="Category"
+                                   asp-action="Index">
+                                    Categories
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-box"
-                               asp-controller="Category"
-                               asp-action="Index">
-                                Categories
-                            </a>
-                        </li>
-
-                    </ul>
-
+                        </ul>
+                    }
                 </div>
+
+                <partial name="_LoginPartial" />
 
             </div>
         </nav>

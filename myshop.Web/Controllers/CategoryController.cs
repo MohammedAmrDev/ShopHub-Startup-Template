@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using myshop.BLL.Interfaces;
 using myshop.Models.Entities;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+	public class CategoryController : Controller
     {
         private readonly ICategoriesService _categoriesService;
 

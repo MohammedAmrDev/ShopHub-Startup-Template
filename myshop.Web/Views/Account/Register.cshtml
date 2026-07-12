@@ -1,0 +1,89 @@
+﻿@using myshop.Models.Enums
+@model RegistrationViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h4 class="mb-0 fw-bold">Create an Account</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Register" method="post">
+                        <input type ="hidden" asp-for="Role" />
+
+                        <!-- Global Validation Summary -->
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <!-- First Name & Last Name (Side by side on medium+ screens) -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FirstName" class="form-label fw-semibold"></label>
+                                <input asp-for="FirstName" class="form-control" placeholder="John" />
+                                <span asp-validation-for="FirstName" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="LastName" class="form-label fw-semibold"></label>
+                                <input asp-for="LastName" class="form-control" placeholder="Doe" />
+                                <span asp-validation-for="LastName" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <input asp-for="Email" class="form-control" placeholder="name@example.com" type="email" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-semibold"></label>
+                            <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label asp-for="PasswordConfirm" class="form-label fw-semibold"></label>
+                            <input asp-for="PasswordConfirm" class="form-control" placeholder="••••••••" />
+                            <span asp-validation-for="PasswordConfirm" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-light py-3">
+                    <span class="text-muted">Already have an account?</span>
+                    <a asp-action="Login" class="fw-semibold text-decoration-none">Sign in</a>
+                </div>
+                @if (Model.Role == UserTypeEnum.Customer)
+                {
+                    <div class="card-footer text-center bg-light py-3">
+                        <span class="text-muted">Register as Admin</span>
+                        <a asp-action="register" asp-route-role="admin" class="fw-semibold text-decoration-none">Register</a>
+                    </div>
+                } else
+                {
+                    <div class="card-footer text-center bg-light py-3">
+                        <span class="text-muted">Register as Customer</span>
+                        <a asp-action="register" class="fw-semibold text-decoration-none">Register</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -23,7 +23,7 @@ namespace myshop.BLL.Services
 
 		public async Task<List<ProductResponse>> GetAllProducts()
 		{
-			List<Product> products = await _uow.Products.GetAllAsync();
+			List<Product> products = await _uow.Products.GetAllAsync(x => x.Category);
 			return products.Select(_mapper.Map<ProductResponse>).ToList();
 		}
 
@@ -39,7 +39,7 @@ namespace myshop.BLL.Services
 
 		public async Task<ProductResponse?> GetProductById(int id)
 		{
-			Product? product = await _uow.Products.GetByIdAsync(id);
+			Product? product = await _uow.Products.GetByIdAsync(id, x => x.Category);
 			if (product == null)
 				return null;
 			return _mapper.Map<ProductResponse>(product);
@@ -55,7 +55,7 @@ namespace myshop.BLL.Services
 			}
 
 			Product product = _mapper.Map<Product>(productViewModel);
-			await _uow.Products.UpdateAsync(product);
+			_uow.Products.Update(product);
 			await _uow.SaveChangesAsync();
 		}
 
@@ -66,8 +66,14 @@ namespace myshop.BLL.Services
 				return false;
 
 			_imageService.DeleteImage(productResponse.ImageURL);
-			int rowsEffect = await _uow.Products.DeleteAsync(id); // no SaveChanges for this method, Go to the repository for more information
-			return rowsEffect > 0;
+			var productEntity = await _uow.Products.GetByIdAsync(id, x => x.Category);
+			if (productEntity != null)
+			{
+				_uow.Products.Delete(productEntity);
+				await _uow.SaveChangesAsync();
+				return true;
+			}
+			return false;
 		}
 	}
 }

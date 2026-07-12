@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using myshop.Models.IdentityEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

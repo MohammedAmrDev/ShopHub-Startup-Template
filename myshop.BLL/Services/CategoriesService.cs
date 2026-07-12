@@ -29,13 +29,17 @@ namespace myshop.BLL.Services
 
 		public async Task UpdateCategoryAsync(Category category)
 		{
-			await _uow.Categories.UpdateAsync(category);
+			_uow.Categories.Update(category);
 			await _uow.SaveChangesAsync();
 		}
 
 		public async Task DeleteCategoryAsync(int id)
 		{
-			await _uow.Categories.DeleteAsync(id);
+			var category = await _uow.Categories.GetByIdAsync(id);
+			if (category != null)
+			{
+				_uow.Categories.Delete(category);
+			}
 			await _uow.SaveChangesAsync();
 		}
 	}

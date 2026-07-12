@@ -39,7 +39,6 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
           "Microsoft.AspNetCore.Identity.UI": "7.0.9",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.9",
-          "Microsoft.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.9",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.8",
@@ -2534,6 +2533,7 @@
       "myshop.DAL/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9",
           "myshop.Models": "1.0.0"
         },
         "runtime": {
@@ -2548,6 +2548,7 @@
       },
       "myshop.Models/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.9"
         },
         "runtime": {
