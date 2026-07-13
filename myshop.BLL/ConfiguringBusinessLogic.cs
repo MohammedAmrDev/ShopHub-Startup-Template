@@ -16,6 +16,7 @@ namespace myshop.BLL
 			services.AddScoped<IProductsService, ProductsService>();
 			services.AddScoped<ICategoriesService, CategoriesService>();
 			services.AddScoped<IImageService, ImageService>();
+			services.AddTransient<IMailService, MailService>();
 			return services;
 		}
 	}
