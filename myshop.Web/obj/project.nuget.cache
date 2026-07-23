@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TqJC3IFdARY=",
+  "dgSpecHash": "Hp31ER8yBj4=",
   "success": true,
   "projectFilePath": "F:\\Desktop\\M0h@mm3d\\C# Projects\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
   "expectedPackageFiles": [
@@ -189,6 +189,7 @@
     "C:\\Users\\gamer\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\gamer\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
     "C:\\Users\\gamer\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\gamer\\.nuget\\packages\\system.linq.dynamic.core\\1.7.3\\system.linq.dynamic.core.1.7.3.nupkg.sha512",
     "C:\\Users\\gamer\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\gamer\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\gamer\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",

@@ -9155,21 +9155,8 @@ D:\visual-studio-programs\E-Commerce-Startup-Template\ShopHub-Startup-Template\m
 D:\visual-studio-programs\E-Commerce-Startup-Template\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.pdb
 D:\visual-studio-programs\E-Commerce-Startup-Template\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.genruntimeconfig.cache
 D:\visual-studio-programs\E-Commerce-Startup-Template\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\ref\myshop.Web.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.csproj.AssemblyReference.cache
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\rpswa.dswa.cache.json
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.GeneratedMSBuildEditorConfig.editorconfig
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.AssemblyInfoInputs.cache
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.AssemblyInfo.cs
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.csproj.CoreCompileInputs.cache
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.MvcApplicationPartsAssemblyInfo.cs
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.MvcApplicationPartsAssemblyInfo.cache
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.RazorAssemblyInfo.cache
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.RazorAssemblyInfo.cs
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.sourcelink.json
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\refint\myshop.Web.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.pdb
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\appsettings.Development.json
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\appsettings.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.Web.staticwebassets.runtime.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.Web.staticwebassets.endpoints.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.Web.exe
@@ -9473,6 +9460,8 @@ F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\ne
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\refs\System.Xml.XPath.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\refs\System.Xml.XPath.XDocument.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\refs\WindowsBase.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\AutoMapper.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\Azure.Core.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\Azure.Identity.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\Humanizer.dll
@@ -9708,10 +9697,23 @@ F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\ne
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.BLL.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.DAL.dll
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.Models.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.BLL.pdb
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.DAL.pdb
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.Models.pdb
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.csproj.AssemblyReference.cache
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\rpswa.dswa.cache.json
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.GeneratedMSBuildEditorConfig.editorconfig
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.AssemblyInfoInputs.cache
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.AssemblyInfo.cs
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.csproj.CoreCompileInputs.cache
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.MvcApplicationPartsAssemblyInfo.cs
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.MvcApplicationPartsAssemblyInfo.cache
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.RazorAssemblyInfo.cache
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.RazorAssemblyInfo.cs
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.sourcelink.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\rjimswa.dswa.cache.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\rjsmrazor.dswa.cache.json
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\rjsmcshtml.dswa.cache.json
@@ -9725,10 +9727,9 @@ F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\ne
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\swae.build.ex.cache
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.csproj.Up2Date
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\refint\myshop.Web.dll
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.pdb
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\myshop.Web.genruntimeconfig.cache
 F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\obj\Debug\net7.0\ref\myshop.Web.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.BLL.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\myshop.BLL.pdb
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\AutoMapper.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\appsettings.json
+F:\Desktop\M0h@mm3d\C# Projects\ShopHub-Startup-Template\myshop.Web\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll

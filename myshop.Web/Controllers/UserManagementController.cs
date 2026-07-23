@@ -1,105 +1,108 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using myshop.BLL.Interfaces;
 using myshop.Models.Enums;
 using myshop.Models.IdentityEntities;
-using myshop.Models.ViewModels;
 
 namespace myshop.Web.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class UserManagementController : Controller
 	{
 		private readonly UserManager<ApplicationUser> _userManager;
-		private readonly IMapper _mapper;
-		public UserManagementController(UserManager<ApplicationUser> userManager, IMapper mapper)
+		private readonly IUserManagementService _userManagementService;
+		public UserManagementController(UserManager<ApplicationUser> userManager, IUserManagementService userManagementService)
 		{
 			_userManager = userManager;
-			_mapper = mapper;
+			_userManagementService = userManagementService;
 		}
-		public async Task<IActionResult> Index(string? searchBy, int? pageIndex = 0)
+		public async Task<IActionResult> Index()
 		{
-			var pageSize = 5;
-			var usersFiltered = _userManager.Users
-				.Where(u => searchBy == null || u.UserName.Contains(searchBy));
+			return View();
+		}
 
-			var usersPaginated = await usersFiltered.Skip(pageSize * pageIndex.Value).Take(pageSize).ToListAsync();
-			
-			var usersVM = new List<UserManagementViewModel>();
-			
-			foreach (var user in usersPaginated)
+		public async Task<IActionResult> GetData()
+		{
+			int? length = int.TryParse(Request.Form["length"][0], out int _length) ? _length : null;
+			int? start = int.TryParse(Request.Form["start"][0], out int _start) ? _start : null;
+			var search = Request.Form["search[value]"][0];
+			var orderByColumnName = Request.Form[$"columns[{Request.Form["order[0][column]"][0]}][name]"][0];
+			var orderDir = Request.Form["order[0][dir]"][0];
+
+			var (data, recordsTotal, recordsFiltered) = await _userManagementService.GetUsersAsync(search, orderByColumnName, orderDir, start, length);
+
+			return Json(new
 			{
-				var vm = _mapper.Map<UserManagementViewModel>(user);
-				var userRoles = await _userManager.GetRolesAsync(user);
-				vm.Role = userRoles.FirstOrDefault() ?? "Customer";
-				vm.IsLocked = await _userManager.IsLockedOutAsync(user);
-				usersVM.Add(vm);
-			}
-
-			ViewBag.PagesNum = (int)Math.Ceiling(usersFiltered.Count() / (double)pageSize);
-			ViewBag.PageIndex = pageIndex;
-			ViewBag.SearchBy = searchBy;
-
-			return View(usersVM);
+				draw = Request.Form["draw"][0],
+				data,
+				recordsTotal,
+				recordsFiltered,
+			});
 		}
 
 		[HttpPost]
-		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> ToggleLock(string id)
 		{
 			var user = await _userManager.FindByIdAsync(id);
-			if (user == null) return NotFound();
-			if(AdminGuarding(id)) return BadRequest();
+
+			if (user is null)
+				return BadRequest("Invalid User Id");
+
+			if (AdminGuarding(id)) return BadRequest();
 
 			if (await _userManager.IsLockedOutAsync(user))
 			{
 				await _userManager.SetLockoutEndDateAsync(user, null);
+				return Json(new { success = true, message = "User is activiated" });
 			}
 			else
 			{
 				await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.AddYears(100));
+				return Json(new { success = true, message = "User is locked" });
 			}
 
-			return RedirectToAction(nameof(Index));
 		}
 
 		[HttpPost]
-		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> ToggleRole(string id)
 		{
 			var user = await _userManager.FindByIdAsync(id);
-			if (user == null) return NotFound();
-			if(AdminGuarding(id)) return BadRequest();
+			if (user is null)
+				return BadRequest("Invalid User Id");
+			if (AdminGuarding(id)) return BadRequest();
 
 			var isCustomer = await _userManager.IsInRoleAsync(user, nameof(UserTypeEnum.Customer));
 			if (isCustomer)
 			{
 				await _userManager.AddToRoleAsync(user, nameof(UserTypeEnum.Admin));
 				await _userManager.RemoveFromRoleAsync(user, nameof(UserTypeEnum.Customer));
+				return Json(new { success = true, message = "Role Changed To Admin" });
 			}
 			else
 			{
 				await _userManager.AddToRoleAsync(user, nameof(UserTypeEnum.Customer));
 				await _userManager.RemoveFromRoleAsync(user, nameof(UserTypeEnum.Admin));
+				return Json(new { success = true, message = "Role Changed To Customer" });
 			}
-
-			return RedirectToAction(nameof(Index));
 		}
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
+		[HttpDelete]
 		public async Task<IActionResult> Delete(string id)
 		{
 			var user = await _userManager.FindByIdAsync(id);
-			if (user == null) return NotFound();
-			if (AdminGuarding(id)) return BadRequest();
+			if (user is null)
+				return BadRequest("Invalid User Id");
+
+			if (AdminGuarding(id))
+				return BadRequest();
 
 			var result = await _userManager.DeleteAsync(user);
 
 			if (result.Succeeded)
-				return RedirectToAction(nameof(Index));
+				return Json(new { success = true, message = "User has been deleted" });
 
-			return BadRequest();
+			return Json(new { success = false, message = "Error occured while deleted" });
 		}
 
 		// Must be added after checking if there is a user with the specified id

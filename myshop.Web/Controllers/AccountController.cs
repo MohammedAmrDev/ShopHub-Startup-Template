@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
 using myshop.BLL.Interfaces;
-using myshop.Models.Enums;
 using myshop.Models.IdentityEntities;
 using myshop.Models.ViewModels;
-using System.Text;
 
 namespace myshop.Web.Controllers
 {
@@ -25,16 +21,6 @@ namespace myshop.Web.Controllers
 			_signInManager = signInManager;
 			_mapper = mapper;
 			_mailService = mailService;
-		}
-
-		[HttpGet]
-		public IActionResult Register(UserTypeEnum? role)
-		{
-			RegistrationViewModel model = new RegistrationViewModel
-			{
-				Role = role ?? UserTypeEnum.Customer,
-			};
-			return View(model);
 		}
 
 		[HttpPost]

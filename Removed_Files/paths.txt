@@ -1,0 +1,2 @@
+_Customer => Views/Shared/_Customer.cshtml
+customer => wwwroot/

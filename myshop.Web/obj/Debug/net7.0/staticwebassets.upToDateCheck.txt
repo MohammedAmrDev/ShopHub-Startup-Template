@@ -27,9 +27,11 @@ wwwroot\Images\Products\927524ce-cf58-4eea-9e36-d29b9edc539a.jpg
 wwwroot\Images\Products\94ce7506-5034-4417-a9f2-4697c06ea99a.jpg
 wwwroot\Images\Products\9a97b6b2-b0f0-4310-ba8b-26a168f48de2.jpg
 wwwroot\Images\Products\9bce27e9-1af4-466a-8f64-007ab6d04c28.jpg
+wwwroot\Images\Products\9d6df320-dd4d-4259-b43e-132344263bc6.png
 wwwroot\Images\Products\a67361d3-84bb-45c9-8d1d-7adf756f9520.jfif
 wwwroot\Images\Products\a76c3678-23ae-48ab-a4b1-84b7d22bf27f.jpg
 wwwroot\Images\Products\ac682fc5-fad4-485e-a800-a2a2893fa8ab.jpg
+wwwroot\Images\Products\ace84a8e-b2fb-4b77-955c-a7151e6b143d.png
 wwwroot\Images\Products\bf36fcdf-954c-4602-8623-6711534e873e.jpg
 wwwroot\Images\Products\c1db582a-79c3-40ca-bdf6-f939bdd40e5a.jpg
 wwwroot\Images\Products\c42a18f3-79d6-44c9-9047-438d295dbacd.webp
@@ -70,9 +72,6 @@ wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
 wwwroot\css\site.css
 wwwroot\css\summary.css
-wwwroot\customer\assets\favicon.ico
-wwwroot\customer\css\styles.css
-wwwroot\customer\js\scripts.js
 wwwroot\favicon.ico
 wwwroot\img\AdminLTELogo.png
 wwwroot\img\avatar.png
@@ -114,12 +113,14 @@ wwwroot\js\adminlte.js
 wwwroot\js\adminlte.js.map
 wwwroot\js\adminlte.min.js
 wwwroot\js\adminlte.min.js.map
+wwwroot\js\datatables\categories.js
+wwwroot\js\datatables\products.js
+wwwroot\js\datatables\users.js
 wwwroot\js\demo.js
 wwwroot\js\order.js
 wwwroot\js\pages\dashboard.js
 wwwroot\js\pages\dashboard2.js
 wwwroot\js\pages\dashboard3.js
-wwwroot\js\products.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

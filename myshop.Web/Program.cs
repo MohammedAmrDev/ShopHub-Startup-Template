@@ -23,20 +23,27 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
 {
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4);
-    options.SignIn.RequireConfirmedEmail = true;
+    //options.SignIn.RequireConfirmedEmail = false;
 }).AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.FallbackPolicy = options.GetPolicy("AdminOnly");
+    // Make a policy for verified customers, to allow the customer that registered with real emails make orders
+    options.AddPolicy("VerifiedCustomer", policy =>
+        policy.RequireRole("Customer")
+            .RequireClaim("EmailConfirmed", "True"));
+
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
 });
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 builder.Services.ConfiguringBusinessLogicLayer();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUserManagementRepository, UserManagementRepository>();
 
 
 builder.Services.AddHttpContextAccessor();

@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.PageTitle = "Products Management";
     ViewBag.CardTitle = "View Products";
-    Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -127,10 +126,11 @@
                 <th style="width:130px;">Actions</th>
             </tr>
         </thead>
+        <tbody></tbody>
     </table>
 
 </div>
 
 @section Scripts {
-    <script src="~/js/products.js"></script>
+    <script src="~/js/datatables/products.js"></script>
 }

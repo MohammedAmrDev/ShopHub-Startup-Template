@@ -5,6 +5,7 @@ using myshop.DAL.Interfaces;
 using myshop.Models.DTOs;
 using myshop.Models.Entities;
 using myshop.Models.ViewModels;
+using System.Linq.Expressions;
 
 namespace myshop.BLL.Services
 {
@@ -21,10 +22,20 @@ namespace myshop.BLL.Services
 			_imageService = imageService;
 		}
 
-		public async Task<List<ProductResponse>> GetAllProducts()
+		public async Task<(List<ProductResponse> data, int recordsTotal, int recordsFiltered)> GetAllProducts(string? search, string? orderBy, string? orderDir, int? start, int? length)
 		{
-			List<Product> products = await _uow.Products.GetAllAsync(x => x.Category);
-			return products.Select(_mapper.Map<ProductResponse>).ToList();
+			List<Product> products = await _uow.Products.GetAllForDataTableAsync(
+				string.IsNullOrEmpty(search) ? null : p => p.Name.ToLower().Contains(search.ToLower()) || p.Description.ToLower().Contains(search.ToLower()),
+				orderBy,
+				orderDir,
+				start ?? 0,
+				length ?? 5,
+				x => x.Category
+			);
+
+			var data = products.Select(_mapper.Map<ProductResponse>).ToList();
+
+			return (data, await _uow.Products.GetCountAsync(), data.Count());
 		}
 
 		public async Task CreateProduct(ProductViewModel productViewModel)
@@ -32,7 +43,7 @@ namespace myshop.BLL.Services
 			Product product = _mapper.Map<Product>(productViewModel);
 			string? ImageURL = _imageService.UploadImage(productViewModel.ImageFile); // ImageFile will not be null here because of the custom validation
 			if (ImageURL != null)
-				product.Img = ImageURL;
+				product.ImageURL = ImageURL;
 			await _uow.Products.CreateAsync(product);
 			await _uow.SaveChangesAsync();
 		}
@@ -61,19 +72,14 @@ namespace myshop.BLL.Services
 
 		public async Task<bool> DeleteProductAsync(int id)
 		{
-			ProductResponse? productResponse = await GetProductById(id);
-			if (productResponse == null)
+			Product? productEntity = await _uow.Products.GetByIdAsync(id, x => x.Category);
+			if (productEntity is null)
 				return false;
 
-			_imageService.DeleteImage(productResponse.ImageURL);
-			var productEntity = await _uow.Products.GetByIdAsync(id, x => x.Category);
-			if (productEntity != null)
-			{
-				_uow.Products.Delete(productEntity);
-				await _uow.SaveChangesAsync();
-				return true;
-			}
-			return false;
+			_imageService.DeleteImage(productEntity.ImageURL);
+			_uow.Products.Delete(productEntity);
+			await _uow.SaveChangesAsync();
+			return true;
 		}
 	}
 }

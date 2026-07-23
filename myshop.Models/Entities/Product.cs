@@ -14,7 +14,7 @@ namespace myshop.Models.Entities
 
         [DisplayName("Image")]
         [ValidateNever]
-        public string Img { get; set; }
+        public string ImageURL { get; set; }
 
         [Required]
         public decimal Price { get; set; }

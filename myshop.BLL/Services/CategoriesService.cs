@@ -1,46 +1,70 @@
-﻿using myshop.BLL.Interfaces;
+﻿using AutoMapper;
+using myshop.BLL.Interfaces;
 using myshop.DAL.Interfaces;
+using myshop.Models.DTOs;
 using myshop.Models.Entities;
+using myshop.Models.ViewModels;
 
 namespace myshop.BLL.Services
 {
 	public class CategoriesService : ICategoriesService
 	{
 		private readonly IUnitOfWork _uow;
-		public CategoriesService(IUnitOfWork uow)
+		private readonly IMapper _mapper;
+		public CategoriesService(IUnitOfWork uow, IMapper mapper)
 		{
 			_uow = uow;
+			_mapper = mapper;
 		}
 
-		public async Task<List<Category>> GetCategoriesAsync()
+		public async Task<(List<CategoryResponse> data, int recordsTotal, int recordsFiltered)> GetCategoriesAsync(string? search, string? orderBy, string? orderDir, int? start, int? length)
 		{
-			return await _uow.Categories.GetAllAsync();
-		}
-		public async Task<Category?> GetCategoryByIdAsync(int id)
-		{
-			return await _uow.Categories.GetByIdAsync(id);
+			var categories = await _uow.Categories.GetAllForDataTableAsync(
+				string.IsNullOrEmpty(search) ? null : p => p.Name.ToLower().Contains(search.ToLower()) || p.Description.ToLower().Contains(search.ToLower()),
+				orderBy,
+				orderDir,
+				start ?? 0,
+				length ?? 5
+			);
+
+			var data = categories.Select(_mapper.Map<CategoryResponse>).ToList();
+
+			return (data, await _uow.Categories.GetCountAsync(), data.Count());
 		}
 
-		public async Task CreateCategoryAsync(Category category)
+		public async Task<List<CategoryResponse>> GetCategoriesAsync()
 		{
-			await _uow.Categories.CreateAsync(category);
-			await _uow.SaveChangesAsync();
+			IEnumerable<Category> categories = await _uow.Categories.GetAllAsync();
+			return categories.Select(_mapper.Map<CategoryResponse>).ToList();
 		}
 
-		public async Task UpdateCategoryAsync(Category category)
-		{
-			_uow.Categories.Update(category);
-			await _uow.SaveChangesAsync();
-		}
-
-		public async Task DeleteCategoryAsync(int id)
+		public async Task<CategoryResponse?> GetCategoryByIdAsync(int id)
 		{
 			var category = await _uow.Categories.GetByIdAsync(id);
-			if (category != null)
-			{
-				_uow.Categories.Delete(category);
-			}
+			return _mapper.Map<CategoryResponse>(category);
+		}
+
+		public async Task CreateCategoryAsync(CategoryViewModel category)
+		{
+			await _uow.Categories.CreateAsync(_mapper.Map<Category>(category));
 			await _uow.SaveChangesAsync();
+		}
+
+		public async Task UpdateCategoryAsync(CategoryViewModel categoryVM)
+		{
+			_uow.Categories.Update(_mapper.Map<Category>(categoryVM));
+			await _uow.SaveChangesAsync();
+		}
+
+		public async Task<bool> DeleteCategoryAsync(int id)
+		{
+			var category = await _uow.Categories.GetByIdAsync(id);
+			if (category is null)
+				return false;
+
+			_uow.Categories.Delete(category);
+			await _uow.SaveChangesAsync();
+			return true;
 		}
 	}
 }
