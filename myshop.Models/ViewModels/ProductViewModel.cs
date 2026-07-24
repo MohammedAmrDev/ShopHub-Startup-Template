@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using myshop.Models.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace myshop.Models.ViewModels
@@ -18,15 +19,19 @@ namespace myshop.Models.ViewModels
 		public string? Description { get; set; }
 
 		[Required]
+		[Range(1, 500)]
 		public decimal Price { get; set; }
 
+		[Required]
+		[AllowedExtensions]
+		[MaximumAllowedSize]
 		public IFormFile? ImageFile { get; set; }
 
 		public string? ImageURL {  get; set; }
 
 		[Required]
 		[Display(Name = "Category")]
-		public int CategoryId { get; set; }
+		public int? CategoryId { get; set; }
 
 		[ValidateNever]
 		public IEnumerable<SelectListItem> CategoryList { get; set; } = new List<SelectListItem>();

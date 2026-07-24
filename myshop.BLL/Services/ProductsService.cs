@@ -13,9 +13,9 @@ namespace myshop.BLL.Services
 	{
 		private readonly IUnitOfWork _uow;
 		private readonly IMapper _mapper;
-		private readonly IImageService _imageService;
+		private readonly IFileService _imageService;
 
-		public ProductsService(IUnitOfWork uow, IMapper mapper, IImageService imageService)
+		public ProductsService(IUnitOfWork uow, IMapper mapper, IFileService imageService)
 		{
 			_uow = uow;
 			_mapper = mapper;

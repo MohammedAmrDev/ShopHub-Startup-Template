@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using myshop.BLL.Interfaces;
+using myshop.Models.Settings;
 
 namespace myshop.BLL.Services
 {
-	public class ImageService : IImageService
+	public class LocalFileService : IFileService
 	{
 		private readonly IWebHostEnvironment _webHostEnvironment;
 
-		public ImageService(IWebHostEnvironment webHostEnvironment)
+		public LocalFileService(IWebHostEnvironment webHostEnvironment)
 		{
 			_webHostEnvironment = webHostEnvironment;
 		}
@@ -18,14 +19,14 @@ namespace myshop.BLL.Services
 			string RootPath = _webHostEnvironment.WebRootPath;
 			
 			string filename = Guid.NewGuid().ToString();
-			var Upload = Path.Combine(RootPath, @"Images\Products");
+			var upload = Path.Combine(RootPath, FileSettings.ProductsImagePath);
 			var ext = Path.GetExtension(file.FileName);
 
-			using (var filestream = new FileStream(Path.Combine(Upload, filename + ext), FileMode.Create))
+			using (var filestream = new FileStream(Path.Combine(upload, filename + ext), FileMode.Create))
 			{
 				file.CopyTo(filestream);
 			}
-			return @"Images\Products\" + filename + ext;
+			return FileSettings.ProductsImagePath + filename + ext;
 		}
 		public bool DeleteImage(string imageURL)
 		{

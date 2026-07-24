@@ -15,7 +15,7 @@ namespace myshop.BLL
 		{
 			services.AddScoped<IProductsService, ProductsService>();
 			services.AddScoped<ICategoriesService, CategoriesService>();
-			services.AddScoped<IImageService, ImageService>();
+			services.AddScoped<IFileService, LocalFileService>();
 			services.AddScoped<IUserManagementService, UserManagementService>();
 			services.AddTransient<IMailService, MailService>();
 			return services;

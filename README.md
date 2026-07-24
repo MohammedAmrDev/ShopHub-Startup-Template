@@ -9,3 +9,9 @@
     - DataTables (fancy sortable/searchable tables)
     - SweetAlert2 (nice-looking popup notifications/toasts)
 - [ ] Build a real customer storefront instead of the default Home/Index page
+
+
+## Before starting
+
+- Setup the connection string
+- Setup the Mail SMTP (for mail confirmation) in the configuration file (Based on the MailSetting model in Models/Settings/)
